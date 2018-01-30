@@ -8,6 +8,13 @@ TagManager:
   - Launch Pad
   - Teleporter
   - Teleporter 2
+  - Start Game Button
+  - High Scores
+  - Easy
+  - Medium
+  - Hard
+  - Extreme
+  - Back
   layers:
   - Default
   - TransparentFX
