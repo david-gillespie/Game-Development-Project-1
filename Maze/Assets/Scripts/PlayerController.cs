@@ -11,23 +11,42 @@ public class PlayerController : MonoBehaviour {
     public Button newGameButton;
     public Rigidbody player;
 
+    
     private bool canMove;
     private bool gameOver;
     private float speed = 10;
+    private int bordersize;
     private GameObject[] pickups;
-    private Vector3 startPostion = new Vector3(-68, 0.5f, -68);
-    private Vector3 endPosition = new Vector3(-66, 0.5f, -66);
+    private string levelName;
+    private Vector3 startPostion;
+    private Vector3 endPosition;
     private Vector3 launchPower = new Vector3(0, 25, 0);
     private Vector3 jump = new Vector3(0, 10, 0);
 
     void Start ()
     {
-        newGameButton.onClick.AddListener(goBack);
+        levelName = Application.loadedLevelName;
+        newGameButton.onClick.AddListener(changeScene);
         startNewGame();
     }
 	
     public void startNewGame()
     {
+        if (levelName == "Maze")
+        {
+            startPostion = new Vector3(-68, 0.5f, -68);
+            endPosition = new Vector3(-66, 0.5f, -66);
+            bordersize = 71;
+        }
+        else if (levelName == "Jump")
+        {
+            startPostion = new Vector3(0, 0.5f, 0);
+            endPosition = new Vector3(0, 5.5f, 40);
+            launchPower = new Vector3(0, 75, 0);
+            bordersize = 61;
+        }
+
+        winText.text = "";
         gameOver = false;
         canMove = true;
         newGameButton.gameObject.SetActive(false);
@@ -45,46 +64,10 @@ public class PlayerController : MonoBehaviour {
 
 
 	private void Update ()
-    {
-        /*if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (winText.text != "You Win!" && winText.text != "You Lose.")
-            {
-                if (canMove)
-                    showMenu();
-                else
-                    resumeGame();
-            }
-            else
-            {
-                if (newGameButton.gameObject.activeSelf)
-                    closeMenu();
-                showMenu();
-            }
-        }*/
-        if (Input.GetKeyDown(KeyCode.Space))
-            if (player.position.y == 0.5 && winText.text == "")
+    {   if (Input.GetKeyDown(KeyCode.Space))
+            if ((player.position.y == 0.5 || player.position.y == 5.5) && winText.text == "")
             player.AddForce(jump * speed);
 	}
-
-    /*private void closeMenu()
-    {
-        newGameButton.gameObject.SetActive(false);
-    }
-
-    private void showMenu()
-    {
-        canMove = false;
-        newGameButton.gameObject.SetActive(true);
-        player.Sleep();
-        player.WakeUp();
-    }
-
-    private void resumeGame()
-    {
-        canMove = true;
-        newGameButton.gameObject.SetActive(false);
-    }*/
 
     private void FixedUpdate()
     {
@@ -97,7 +80,7 @@ public class PlayerController : MonoBehaviour {
 
             player.AddForce(movement * speed);
         }
-        if (Math.Abs(player.position.x) > 71 || Math.Abs(player.position.z) > 71)
+        if (Math.Abs(player.position.x) > bordersize || Math.Abs(player.position.z) > bordersize)
         {
             canMove = false;
             player.Sleep();
@@ -160,8 +143,20 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void goBack()
+    private void changeScene()
     {
-        SceneManager.LoadScene("MainMenu");
+        
+        switch (levelName)
+        {
+            case "Maze":
+                SceneManager.LoadScene("Jump");
+                break;
+            case "Jump":
+                SceneManager.LoadScene("MainMenu");
+                break;
+            default:
+                break;
+        }
+        //SceneManager.LoadScene("MainMenu");
     }
 }
