@@ -34,19 +34,7 @@ public class Timer : MonoBehaviour {
             {
                 string seconds = "";
                 elapsedTime += Time.deltaTime;
-                float timeLeft = maxSeconds - elapsedTime;
-                if (timeLeft % 60 < 0)
-                {
-                    pauseText.text = "You Lose.";
-					nextGameButton.gameObject.SetActive (true);
-                    pc.MovePosition(startPosition);
-                    pc.Sleep();
-                    pc.WakeUp();
-                }
-                else
-                {
-                    seconds = timeLeft.ToString("f1");
-                }
+				seconds = elapsedTime.ToString("f1");
                 timerText.text = seconds;
             }
         }

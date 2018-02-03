@@ -7,16 +7,32 @@ public class MazeGeneration : MonoBehaviour {
 	public GameObject wallPrefabVerical;
 	public GameObject wallPrefabHorizontal;
 	public GameObject parent;
+	public GameObject ghostPrefab;
+	public GameObject ghostParents;
 
 	private const int mazeScale = 20;
 	private const int mazeOffSet = -100;
 	private const int wallSegmentSize = 10;
 	private GameObject[,] mazeArrayVertical = new GameObject[mazeScale,mazeScale];
 	private GameObject[,] mazeArrayHorizontal = new GameObject[mazeScale,mazeScale];
+	private GameObject[] ghosts = new GameObject[40];
 
 	void Start () {
 		FillMaze ();
 		GenerateMaze ();
+		AddGhosts ();
+	}
+
+	void AddGhosts(){
+		for (int i = 0; i < 40; i++) {
+			GameObject newGhostObject = Instantiate (ghostPrefab);
+			newGhostObject.transform.SetParent (ghostParents.transform);
+			newGhostObject.transform.position = new Vector3 (((int) Mathf.Floor(Random.Range(1,18)))*10+mazeOffSet+5,0.01f,((int) Mathf.Floor(Random.Range(1,18)))*10+mazeOffSet+5);
+			float force = Random.Range (100, 400);
+			newGhostObject.GetComponent<Rigidbody> ().AddForce (new Vector3 (400.0f-force,0.0f,force));
+			ghosts [i] = newGhostObject;
+		}
+
 	}
 
 	void FillMaze(){
@@ -25,7 +41,7 @@ public class MazeGeneration : MonoBehaviour {
 			for (int z = 0; z < mazeScale*wallSegmentSize; z += wallSegmentSize) {
 				GameObject newWallObject = Instantiate (wallPrefabVerical);
 				newWallObject.transform.SetParent (parent.transform);
-				newWallObject.transform.position = new Vector3 (x+mazeOffSet,0,z+mazeOffSet+(wallSegmentSize/2));
+				newWallObject.transform.position = new Vector3 (x+mazeOffSet,0.5f,z+mazeOffSet+(wallSegmentSize/2));
 				mazeArrayVertical [(x / wallSegmentSize),z / wallSegmentSize] = newWallObject;
 			}
 		}
@@ -34,7 +50,7 @@ public class MazeGeneration : MonoBehaviour {
 			for (int z = wallSegmentSize; z < mazeScale*wallSegmentSize; z += wallSegmentSize) {
 				GameObject newWallObject = Instantiate (wallPrefabHorizontal);
 				newWallObject.transform.SetParent (parent.transform);
-				newWallObject.transform.position = new Vector3 (x+mazeOffSet+(wallSegmentSize/2),0,z+mazeOffSet);
+				newWallObject.transform.position = new Vector3 (x+mazeOffSet+(wallSegmentSize/2),0.5f,z+mazeOffSet);
 				mazeArrayHorizontal [x / wallSegmentSize,(z / wallSegmentSize)] = newWallObject;
 			}
 		}

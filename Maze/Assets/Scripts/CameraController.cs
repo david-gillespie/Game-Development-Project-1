@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour {
 	}
 	
 	void LateUpdate () {
+//		print (player.GetComponent<Rigidbody>().GetPointVelocity(player.GetComponent<Rigidbody>().transform.position));
         transform.position = player.transform.position + offset;
 	}
 }
