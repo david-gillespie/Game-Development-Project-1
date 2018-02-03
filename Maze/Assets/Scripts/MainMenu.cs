@@ -30,7 +30,7 @@ public class MainMenu : MonoBehaviour {
     
     private void startGame()
     {
-        SceneManager.LoadScene("Maze");
+        SceneManager.LoadScene("New Maze");
     }
     private void showHighScores()
     {

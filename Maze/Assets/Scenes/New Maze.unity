@@ -1639,6 +1639,7 @@ GameObject:
   - component: {fileID: 2137787802}
   - component: {fileID: 2137787801}
   - component: {fileID: 2137787800}
+  - component: {fileID: 2137787803}
   m_Layer: 5
   m_Name: Next Game Button
   m_TagString: Untagged
@@ -1739,3 +1740,15 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2137787798}
+--- !u!114 &2137787803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2137787798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d79451cafc1cb4c8e356f33deb050d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextGameButton: {fileID: 2137787800}

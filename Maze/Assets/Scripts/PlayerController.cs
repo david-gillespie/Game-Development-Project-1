@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour {
     public Text winText;
     public Button nextGameButton;
     public Rigidbody player;
-
     
     private bool canMove;
     private bool gameOver;
@@ -26,7 +25,7 @@ public class PlayerController : MonoBehaviour {
 
     void Start ()
     {
-        levelName = Application.loadedLevelName;
+		levelName = SceneManager.GetActiveScene().name;
         nextGameButton.onClick.AddListener(changeScene);
         startNewGame();
     }
@@ -160,16 +159,13 @@ public class PlayerController : MonoBehaviour {
         
         switch (levelName)
         {
-            case "Maze":
-                SceneManager.LoadScene("Jump");
-                break;
             case "Jump":
                 SceneManager.LoadScene("MainMenu");
                 break;
-		case "New Maze":
-				SceneManager.LoadScene ("MainMenu");
+			case "New Maze":
+				SceneManager.LoadScene ("Jump");
 				break;
-            default:
+        	default:
                 break;
         }
         //SceneManager.LoadScene("MainMenu");
