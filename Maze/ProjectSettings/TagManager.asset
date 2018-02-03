@@ -15,6 +15,7 @@ TagManager:
   - Hard
   - Extreme
   - Back
+  - MiniMap
   layers:
   - Default
   - TransparentFX
