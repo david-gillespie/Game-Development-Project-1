@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour {
     void Start ()
     {
         levelName = Application.loadedLevelName;
+		print(levelName);
         newGameButton.onClick.AddListener(changeScene);
         startNewGame();
     }
@@ -80,8 +81,8 @@ public class PlayerController : MonoBehaviour {
 
             player.AddForce(movement * speed);
         }
-        if (Math.Abs(player.position.x) > bordersize || Math.Abs(player.position.z) > bordersize)
-        {
+		if ((levelName != "New Maze") && (Math.Abs(player.position.x) > bordersize || Math.Abs(player.position.z) > bordersize))
+		{
             canMove = false;
             player.Sleep();
             player.WakeUp();
