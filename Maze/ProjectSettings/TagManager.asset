@@ -16,6 +16,7 @@ TagManager:
   - Extreme
   - Back
   - MiniMap
+  - boundary
   layers:
   - Default
   - TransparentFX

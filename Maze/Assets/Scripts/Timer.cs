@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour {
 
     public Text timerText;
     public Text pauseText;
-    public Button newGameButton;
+    public Button nextGameButton;
     public Rigidbody pc;
 
     private Vector3 startPosition = new Vector3(-68, 0.5f, -68);
@@ -15,9 +15,7 @@ public class Timer : MonoBehaviour {
     private int maxSeconds = 120;
     private float elapsedTime;
 	void Start () {
-        newGameButton.onClick.AddListener(startNewGame);
         startNewGame();
-        newGameButton.gameObject.SetActive(true);
 	}
 	
     public void startNewGame()
@@ -40,6 +38,7 @@ public class Timer : MonoBehaviour {
                 if (timeLeft % 60 < 0)
                 {
                     pauseText.text = "You Lose.";
+					nextGameButton.gameObject.SetActive (true);
                     pc.MovePosition(startPosition);
                     pc.Sleep();
                     pc.WakeUp();

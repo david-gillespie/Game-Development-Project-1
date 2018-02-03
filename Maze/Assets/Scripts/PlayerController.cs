@@ -8,17 +8,18 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour {
 
     public Text winText;
-    public Button newGameButton;
+    public Button nextGameButton;
     public Rigidbody player;
 
     
     private bool canMove;
     private bool gameOver;
+	private bool startPositionSet = false;
     private float speed = 10;
     private int bordersize;
     private GameObject[] pickups;
     private string levelName;
-    private Vector3 startPostion;
+	private Vector3 startPostion;
     private Vector3 endPosition;
     private Vector3 launchPower = new Vector3(0, 25, 0);
     private Vector3 jump = new Vector3(0, 10, 0);
@@ -26,8 +27,7 @@ public class PlayerController : MonoBehaviour {
     void Start ()
     {
         levelName = Application.loadedLevelName;
-		print(levelName);
-        newGameButton.onClick.AddListener(changeScene);
+        nextGameButton.onClick.AddListener(changeScene);
         startNewGame();
     }
 	
@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour {
             startPostion = new Vector3(-68, 0.5f, -68);
             endPosition = new Vector3(-66, 0.5f, -66);
             bordersize = 71;
+			startPositionSet = true;
         }
         else if (levelName == "Jump")
         {
@@ -45,12 +46,13 @@ public class PlayerController : MonoBehaviour {
             endPosition = new Vector3(0, 5.5f, 40);
             launchPower = new Vector3(0, 75, 0);
             bordersize = 61;
+			startPositionSet = true;
         }
 
         winText.text = "";
         gameOver = false;
         canMove = true;
-        newGameButton.gameObject.SetActive(false);
+        nextGameButton.gameObject.SetActive(false);
 
         pickups = Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[];
         foreach (GameObject g in pickups)
@@ -58,7 +60,9 @@ public class PlayerController : MonoBehaviour {
             if (g.CompareTag("Launch Pad"))
                 g.SetActive(true);
         }
-        player.MovePosition(startPostion);
+		if (startPositionSet) {
+			player.MovePosition (startPostion);
+		}
         player.Sleep();
         player.WakeUp();
     }
@@ -83,30 +87,18 @@ public class PlayerController : MonoBehaviour {
         }
 		if ((levelName != "New Maze") && (Math.Abs(player.position.x) > bordersize || Math.Abs(player.position.z) > bordersize))
 		{
-            canMove = false;
-            player.Sleep();
-            player.WakeUp();
-            player.MovePosition(endPosition);
-            gameOver = true;
-            winText.text = "You Lose.";
-            newGameButton.gameObject.SetActive(true);
-            player.Sleep();
-            player.WakeUp();
+			OutOfBounds ();
         }
     }
 
+	//All of these should be replaced with functions
     private void OnTriggerEnter(Collider other)
     {
-        if (!gameOver && !newGameButton.IsActive())
+        if (!gameOver && !nextGameButton.IsActive())
         {
             if (other.gameObject.CompareTag("Win Zone"))
             {
-                player.MovePosition(endPosition);
-                winText.text = "You Win!";
-                player.Sleep();
-                player.WakeUp();
-                canMove = false;
-                newGameButton.gameObject.SetActive(true);
+				WinZone ();
             }
             if (other.gameObject.CompareTag("Launch Pad"))
             {
@@ -123,6 +115,25 @@ public class PlayerController : MonoBehaviour {
             }
         }
     }
+
+	private void OutOfBounds(){
+		canMove = false;
+		player.MovePosition(endPosition);
+		gameOver = true;
+		winText.text = "You Lose.";
+		nextGameButton.gameObject.SetActive(true);
+		player.Sleep();
+		player.WakeUp();
+	}
+
+	private void WinZone(){
+		player.MovePosition(endPosition);
+		winText.text = "You Win!";
+		player.Sleep();
+		player.WakeUp();
+		canMove = false;
+		nextGameButton.gameObject.SetActive(true);
+	}
 
     private void teleport(Collider other, string tagToMatch)
     {
@@ -155,6 +166,9 @@ public class PlayerController : MonoBehaviour {
             case "Jump":
                 SceneManager.LoadScene("MainMenu");
                 break;
+		case "New Maze":
+				SceneManager.LoadScene ("MainMenu");
+				break;
             default:
                 break;
         }

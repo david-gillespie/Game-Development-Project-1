@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneController : MonoBehaviour {
+public class MazeGeneration : MonoBehaviour {
 
 	public GameObject wallPrefabVerical;
 	public GameObject wallPrefabHorizontal;
+	public GameObject parent;
 
 	private const int mazeScale = 20;
 	private const int mazeOffSet = -100;
@@ -15,7 +16,7 @@ public class SceneController : MonoBehaviour {
 
 	void Start () {
 		FillMaze ();
-		generateMaze ();
+		GenerateMaze ();
 	}
 
 	void FillMaze(){
@@ -23,6 +24,7 @@ public class SceneController : MonoBehaviour {
 		for(int x = wallSegmentSize; x<mazeScale*wallSegmentSize;x+=wallSegmentSize){
 			for (int z = 0; z < mazeScale*wallSegmentSize; z += wallSegmentSize) {
 				GameObject newWallObject = Instantiate (wallPrefabVerical);
+				newWallObject.transform.SetParent (parent.transform);
 				newWallObject.transform.position = new Vector3 (x+mazeOffSet,0,z+mazeOffSet+(wallSegmentSize/2));
 				mazeArrayVertical [(x / wallSegmentSize),z / wallSegmentSize] = newWallObject;
 			}
@@ -31,6 +33,7 @@ public class SceneController : MonoBehaviour {
 		for(int x = 0; x<mazeScale*wallSegmentSize;x+=wallSegmentSize){
 			for (int z = wallSegmentSize; z < mazeScale*wallSegmentSize; z += wallSegmentSize) {
 				GameObject newWallObject = Instantiate (wallPrefabHorizontal);
+				newWallObject.transform.SetParent (parent.transform);
 				newWallObject.transform.position = new Vector3 (x+mazeOffSet+(wallSegmentSize/2),0,z+mazeOffSet);
 				mazeArrayHorizontal [x / wallSegmentSize,(z / wallSegmentSize)] = newWallObject;
 			}
@@ -55,7 +58,7 @@ public class SceneController : MonoBehaviour {
 	}
 
 	//Code adapted from my c++ oop project
-	void generateMaze() {
+	void GenerateMaze() {
 		//int counter = 0;
 		bool[,] mazeGenerationArray = new bool[mazeScale,mazeScale];
 		for (int x = 0; x < mazeScale; x++) {
@@ -66,7 +69,6 @@ public class SceneController : MonoBehaviour {
 			
 		int startX = (int) Mathf.Floor(Random.Range(0,mazeScale));
 		int startY = (int) Mathf.Floor(Random.Range(0,mazeScale));
-		print (startX + " " + startY);
 		Stack <Vector2> mazeStack = new Stack<Vector2>();
 		mazeStack.Push(new Vector2(startX,startY));
 		Vector2 currentIndex = mazeStack.Peek();
