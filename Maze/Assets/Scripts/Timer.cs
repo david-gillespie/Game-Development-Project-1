@@ -8,17 +8,14 @@ public class Timer : MonoBehaviour {
     public Text timerText;
     public Text pauseText;
     public Button nextGameButton;
-    public Rigidbody pc;
-
-    private Vector3 startPosition = new Vector3(-68, 0.5f, -68);
+    
     private bool isPaused;
-    private int maxSeconds = 120;
     private float elapsedTime;
 	void Start () {
-        startNewGame();
+        StartNewGame();
 	}
 	
-    public void startNewGame()
+    public void StartNewGame()
     {
         elapsedTime = 0;
         isPaused = false;

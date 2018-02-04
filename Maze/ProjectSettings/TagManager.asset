@@ -10,11 +10,6 @@ TagManager:
   - Teleporter 2
   - Start Game Button
   - High Scores
-  - Easy
-  - Medium
-  - Hard
-  - Extreme
-  - Back
   - MiniMap
   - boundary
   layers:

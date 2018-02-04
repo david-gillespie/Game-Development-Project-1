@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4792794903054682}
   - component: {fileID: 54712749451628152}
   - component: {fileID: 64963950020317182}
+  - component: {fileID: 114711341246906852}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -142,3 +143,14 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: cc0cc9fd06566ba44a45d3f9221a7e3f, type: 3}
+--- !u!114 &114711341246906852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1134474856953602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df72a1dfc4e08a24a86a967f78c5caec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
