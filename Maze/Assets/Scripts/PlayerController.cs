@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour {
     public Rigidbody player;
     
     private bool canMove;
-    private bool gameOver;
     private float speed = 10;
     private int bordersize;
     private GameObject[] pickups;
@@ -38,7 +37,6 @@ public class PlayerController : MonoBehaviour {
         startPosition = endPosition = player.transform.position;
 
         winText.text = "";
-        gameOver = false;
         canMove = true;
         nextGameButton.gameObject.SetActive(false);
 
@@ -76,35 +74,9 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-	//All of these should be replaced with functions
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!gameOver && !nextGameButton.IsActive())
-        {
-            if (other.gameObject.CompareTag("Win Zone"))
-            {
-				WinZone ();
-            }
-            else if (other.gameObject.CompareTag("Launch Pad"))
-            {
-                other.gameObject.SetActive(false);
-                player.AddForce(launchPower * speed);
-            }
-            else if (other.gameObject.CompareTag("Teleporter"))
-            {
-                teleport(other, "Teleporter 2");
-            }
-            else if (other.gameObject.CompareTag("Teleporter 2"))
-            {
-                teleport(other, "Teleporter");
-            }
-        }
-    }
-
 	private void OutOfBounds(){
 		canMove = false;
 		player.MovePosition(endPosition);
-		gameOver = true;
 		winText.text = "You Lose.";
 		nextGameButton.gameObject.SetActive(true);
 		player.Sleep();
@@ -120,9 +92,18 @@ public class PlayerController : MonoBehaviour {
 		nextGameButton.gameObject.SetActive(true);
 	}
 
-    private void teleport(Collider other, string tagToMatch)
+    private void Teleporter1Collision()
     {
-        other.gameObject.SetActive(false);
+        teleport("Teleporter 2");
+    }
+
+    private void Teleporter2Collision()
+    {
+        teleport("Teleporter");
+    }
+
+    private void teleport(string tagToMatch)
+    {
         Vector3 tpLoc = jump;
         pickups = Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[];
         foreach (GameObject go in pickups)
@@ -131,6 +112,7 @@ public class PlayerController : MonoBehaviour {
             {
                 go.SetActive(false);
                 tpLoc = go.transform.position;
+                tpLoc.y += 0.5f;
                 break;
             }
         }
@@ -143,6 +125,11 @@ public class PlayerController : MonoBehaviour {
     private void EnemyCollision()
     {
         player.transform.position = startPosition;
+    }
+
+    private void LaunchPlayer()
+    {
+        player.AddForce(launchPower * speed);
     }
 
     private void changeScene()
