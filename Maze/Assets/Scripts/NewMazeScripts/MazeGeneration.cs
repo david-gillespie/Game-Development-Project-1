@@ -9,6 +9,7 @@ public class MazeGeneration : MonoBehaviour {
 	public GameObject parent;
 	public GameObject ghostPrefab;
 	public GameObject ghostParents;
+    public Material[] materials;
 
 	private const int mazeScale = 20;
 	private const int mazeOffSet = -100;
@@ -29,7 +30,8 @@ public class MazeGeneration : MonoBehaviour {
 			newGhostObject.transform.SetParent (ghostParents.transform);
 			newGhostObject.transform.position = new Vector3 (((int) Mathf.Floor(Random.Range(1,18)))*10+mazeOffSet+5,0.01f,((int) Mathf.Floor(Random.Range(1,18)))*10+mazeOffSet+5);
 			float force = Random.Range (100, 400);
-			newGhostObject.GetComponent<Rigidbody> ().AddForce (new Vector3 (400.0f-force,0.0f,force));
+            newGhostObject.GetComponentInChildren<Renderer>().material = materials[Random.Range(0, 3)];
+            newGhostObject.GetComponent<Rigidbody> ().AddForce (new Vector3 (400.0f-force,0.0f,force));
 			ghosts [i] = newGhostObject;
 		}
 

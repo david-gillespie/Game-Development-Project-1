@@ -978,6 +978,11 @@ MonoBehaviour:
   ghostPrefab: {fileID: 1134474856953602, guid: f286cf5dfeb218b4ebef096d1c5f5677,
     type: 2}
   ghostParents: {fileID: 1600978057}
+  materials:
+  - {fileID: 2100000, guid: 9aca8aedd98b0954081fa6e86e42da78, type: 2}
+  - {fileID: 2100000, guid: d619f6d6a6a897b41853d6b4b6406aa7, type: 2}
+  - {fileID: 2100000, guid: e72d7f5fe27f36640a7ca3498331dce0, type: 2}
+  - {fileID: 2100000, guid: 69863cc262b228e4ba4a668eb3dcc96c, type: 2}
 --- !u!4 &1510054118
 Transform:
   m_ObjectHideFlags: 0
