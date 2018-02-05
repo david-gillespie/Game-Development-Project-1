@@ -1,42 +1,58 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour {
 
-    private List<Button> buttons;
+    public Button startButton;
+    public Button highScoreButton;
+    public Button backButton;
+    public Text highScores;
+    public Text devNames;
+
+    private StreamReader r;
+    private string path = "./Assets/Resources/scores.txt";
+
     void Start()
     {
-        buttons = new List<Button>();
-        buttons.AddRange(GameObject.FindObjectsOfType<Button>());
-        foreach (Button button in buttons)
-        {
-            switch (button.tag)
-            {
-                case "Start Game Button":
-                    button.onClick.AddListener(startGame);
-                    break;
-                case "High Scores":
-                    button.onClick.AddListener(showHighScores);
-                    break;
-                default:
-                    break;
-            }
-        }
+        startButton.onClick.AddListener(StartGame);
+        highScoreButton.onClick.AddListener(ShowHighScores);
+        backButton.onClick.AddListener(GoBack);
+        backButton.gameObject.SetActive(false);
+        highScores.text = "";
     }
     
-    private void startGame()
+    private void StartGame()
     {
         SceneManager.LoadScene("New Maze");
     }
-    private void showHighScores()
+    private void ShowHighScores()
     {
-        foreach (Button b in buttons)
-            b.gameObject.SetActive(false);
-        // TODO: 
-            // read a file and write the file to the screen.
+        devNames.gameObject.SetActive(false);
+        startButton.gameObject.SetActive(false);
+        highScoreButton.gameObject.SetActive(false);
+        backButton.gameObject.SetActive(true);
+        r = File.OpenText(path);
+        string line;
+        int lineNumber = 1;
+        string scores = "High Scores:\n";
+        while ((line = r.ReadLine()) != null)
+        {
+            scores += Convert.ToString(lineNumber) + ") " + line + " seconds\n";
+            lineNumber++;
+        }
+        highScores.text = scores;
+        r.Close();
+    }
+
+    private void GoBack()
+    {
+        startButton.gameObject.SetActive(true);
+        highScoreButton.gameObject.SetActive(true);
+        backButton.gameObject.SetActive(false);
+        devNames.gameObject.SetActive(true);
+        highScores.text = "";
     }
 }

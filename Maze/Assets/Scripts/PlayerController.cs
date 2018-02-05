@@ -6,20 +6,20 @@ using System;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
-
-    public Text winText;
-    public Button nextGameButton;
-    public Rigidbody player;
     
+    public Button nextGameButton;
+    public Text winText;
+    public Rigidbody player;
+
     private bool canMove;
     private float speed = 10;
-    private int bordersize;
     private GameObject[] pickups;
+    private int bordersize;
     private string levelName;
 	private Vector3 startPosition;
     private Vector3 endPosition;
     private Vector3 launchPower = new Vector3(0, 75, 0);
-    private Vector3 jump = new Vector3(0, 10, 0);
+    private Vector3 jump = new Vector3(0, 25, 0);
 
     void Start ()
     {
