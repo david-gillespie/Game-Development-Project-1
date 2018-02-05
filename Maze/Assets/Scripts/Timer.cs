@@ -23,7 +23,8 @@ public class Timer : MonoBehaviour {
     public void StartNewGame()
     {
         elapsedTime = 0;
-        isPaused = false;
+		timerText.text = "0";
+        isPaused = true;
         r = File.OpenText(path);
         string line;
         int lineNumber = 0;
@@ -37,6 +38,10 @@ public class Timer : MonoBehaviour {
         }
         r.Close();
     }
+
+	void startTimer(){
+		isPaused = false;
+	}
 
 	// Update is called once per frame
 	void Update () {

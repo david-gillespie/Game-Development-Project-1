@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour {
             {
                 winText.color = Color.black;
                 winText.text = "";
+				SendMessage ("startTimer");
             }
         }
 		if ((levelName != "New Maze") && (Math.Abs(player.position.x) > bordersize || Math.Abs(player.position.z) > bordersize))
