@@ -10,6 +10,7 @@ public class MazeGeneration : MonoBehaviour {
 	public GameObject ghostPrefab;
 	public GameObject ghostParents;
     public Material[] materials;
+	public GameObject mazeControlObject;
 
 	private const int mazeScale = 20;
 	private const int mazeOffSet = -100;
@@ -22,6 +23,7 @@ public class MazeGeneration : MonoBehaviour {
 		FillMaze ();
 		GenerateMaze ();
 		AddGhosts ();
+		mazeControlObject.SendMessage ("getGhosts",  ghosts);
 	}
 
 	void AddGhosts(){
@@ -141,5 +143,4 @@ public class MazeGeneration : MonoBehaviour {
 			}
 		}
 	}
-		
 }

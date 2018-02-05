@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
     public Text winText;
     public Rigidbody player;
     public string startingText;
+	public GameObject mazeControlObject;
 
     private bool canMove;
     private float speed = 10;

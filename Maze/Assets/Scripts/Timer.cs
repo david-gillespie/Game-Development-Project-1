@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour {
     public Text timerText;
     public Text pauseText;
     public Button nextGameButton;
+	public GameObject mazeControlObject;
     
     private bool isPaused;
     private float elapsedTime;
@@ -63,11 +64,14 @@ public class Timer : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             isPaused = !isPaused;
-            if (pauseText.text != "You Lose." && pauseText.text != "You Win!"
-                && pauseText.text != "Paused")
-                pauseText.text = "Paused";
-            else if (pauseText.text == "Paused")
-                pauseText.text = "";
+			if (pauseText.text != "You Lose." && pauseText.text != "You Win!"
+			             && pauseText.text != "Paused") {
+				pauseText.text = "Paused";
+				mazeControlObject.SendMessage ("pauseGhosts");
+			} else if (pauseText.text == "Paused") {
+				pauseText.text = "";
+				mazeControlObject.SendMessage ("resumeGhosts");
+			}
         }
 
     }
