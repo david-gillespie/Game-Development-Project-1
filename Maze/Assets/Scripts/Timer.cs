@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour {
     private float elapsedTime;
     private double[] scores = new double[10];
     private StreamReader r;
-    private string path = "./Assets/Resources/scores.txt";
+    private const string path = "./Assets/Resources/scores.txt";
     void Start () {
         StartNewGame();
 	}
@@ -24,14 +24,16 @@ public class Timer : MonoBehaviour {
     {
         elapsedTime = 0;
         isPaused = false;
-        if (pauseText.text != "You Win!" || pauseText.text != "You Lose.")
-            pauseText.text = "";
         r = File.OpenText(path);
         string line;
         int lineNumber = 0;
+        // reading and writing to file from here :
+        // https://docs.microsoft.com/en-us/dotnet/standard/io/how-to-open-and-append-to-a-log-file
         while ((line = r.ReadLine()) != null && lineNumber < 11)
         {
             scores[lineNumber] = Convert.ToDouble(line);
+            print(scores[lineNumber]);
+            lineNumber++;
         }
         r.Close();
     }
@@ -67,18 +69,19 @@ public class Timer : MonoBehaviour {
 
     public void AddToScores(double newScore)
     {
-        string[] scoresToWrite = new string[10];
+        string scoresToWrite = "";
         int spotToAdd = -1;
         for (int i = 0; i < scores.Length; i++)
         {
             if (newScore < scores[i])
             {
                 spotToAdd = i;
+                break;
             }
         }
         if (spotToAdd != -1)
         {
-            for (int i = spotToAdd; i < scores.Length; i++)
+            for (int i = scores.Length; i >= spotToAdd; i--)
             {
                 if (i + 1 < scores.Length)
                     scores[i + 1] = scores[i];
@@ -87,8 +90,8 @@ public class Timer : MonoBehaviour {
         }
         for (int i = 0; i < scores.Length; i++)
         {
-            scoresToWrite[i] = Convert.ToString(scores[i]);
-        }
-        File.WriteAllLines(path, scoresToWrite);
+            scoresToWrite += Convert.ToString(scores[i]) + "\n";
+        }        
+        File.WriteAllText(path, scoresToWrite);
     }
 }

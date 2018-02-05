@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
@@ -10,6 +8,7 @@ public class PlayerController : MonoBehaviour {
     public Button nextGameButton;
     public Text winText;
     public Rigidbody player;
+    public string startingText;
 
     private bool canMove;
     private float speed = 10;
@@ -19,7 +18,7 @@ public class PlayerController : MonoBehaviour {
 	private Vector3 startPosition;
     private Vector3 endPosition;
     private Vector3 launchPower = new Vector3(0, 75, 0);
-    private Vector3 jump = new Vector3(0, 25, 0);
+    private Vector3 jump = new Vector3(0, 10, 0);
 
     void Start ()
     {
@@ -33,19 +32,18 @@ public class PlayerController : MonoBehaviour {
         if (levelName == "Jump")
         {
             bordersize = 61;
+            winText.color = Color.blue;
+        }
+        else if (levelName == "New Maze")
+        {
+            winText.color = Color.green;
         }
         startPosition = endPosition = player.transform.position;
-
-        winText.text = "";
+        
+        winText.text = startingText;
         canMove = true;
         nextGameButton.gameObject.SetActive(false);
 
-        pickups = Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[];
-        foreach (GameObject g in pickups)
-        {
-            if (g.CompareTag("Launch Pad"))
-                g.SetActive(true);
-        }
         player.Sleep();
         player.WakeUp();
     }
@@ -67,11 +65,17 @@ public class PlayerController : MonoBehaviour {
             Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
 
             player.AddForce(movement * speed);
+            if (winText.text == startingText && player.position != startPosition)
+            {
+                winText.color = Color.black;
+                winText.text = "";
+            }
         }
 		if ((levelName != "New Maze") && (Math.Abs(player.position.x) > bordersize || Math.Abs(player.position.z) > bordersize))
 		{
 			OutOfBounds ();
         }
+       
     }
 
 	private void OutOfBounds(){
@@ -125,6 +129,8 @@ public class PlayerController : MonoBehaviour {
     private void EnemyCollision()
     {
         player.transform.position = startPosition;
+        player.Sleep();
+        player.WakeUp();
     }
 
     private void LaunchPlayer()

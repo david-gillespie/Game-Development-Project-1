@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour {
     public Text devNames;
 
     private StreamReader r;
-    private string path = "./Assets/Resources/scores.txt";
+    private const string path = "./Assets/Resources/scores.txt";
 
     void Start()
     {
