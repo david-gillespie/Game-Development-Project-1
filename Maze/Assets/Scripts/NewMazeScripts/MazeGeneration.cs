@@ -12,8 +12,8 @@ public class MazeGeneration : MonoBehaviour {
     public Material[] materials;
 	public GameObject mazeControlObject;
 
-	private const int mazeScale = 20;
-	private const int mazeOffSet = -100;
+	private const int mazeScale = 10;
+	private const int mazeOffSet = -50;
 	private const int wallSegmentSize = 10;
 	private GameObject[,] mazeArrayVertical = new GameObject[mazeScale,mazeScale];
 	private GameObject[,] mazeArrayHorizontal = new GameObject[mazeScale,mazeScale];
