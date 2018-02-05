@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
     private float speed = 10;
     private GameObject[] pickups;
     private int bordersize;
+    private int coinsCollected;
     private string levelName;
 	private Vector3 startPosition;
     private Vector3 endPosition;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour {
         if (levelName == "Jump")
         {
             bordersize = 61;
+            coinsCollected = 0;
             winText.color = Color.blue;
         }
         else if (levelName == "New Maze")
@@ -140,6 +142,11 @@ public class PlayerController : MonoBehaviour {
         player.AddForce(launchPower * speed);
     }
 
+    private void CoinCollected()
+    {
+        coinsCollected++;
+    }
+
     private void changeScene()
     {
         
@@ -154,6 +161,5 @@ public class PlayerController : MonoBehaviour {
         	default:
                 break;
         }
-        //SceneManager.LoadScene("MainMenu");
     }
 }
