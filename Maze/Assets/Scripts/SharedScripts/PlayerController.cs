@@ -13,13 +13,12 @@ public class PlayerController : MonoBehaviour {
     private float speed = 10;
     private GameObject[] pickups;
 	private Rigidbody player;
-    private int bordersize;
     private int coinsCollected;
     private string levelName;
 	private Vector3 startPosition;
     private Vector3 endPosition;
     private Vector3 launchPower = new Vector3(0, 75, 0);
-    private Vector3 jump = new Vector3(0, 40, 0);
+    private Vector3 jump = new Vector3(0, 15, 0);
 
     void Start ()
     {
@@ -33,7 +32,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (levelName == "Jump")
         {
-            bordersize = 61;
+            jump = new Vector3(0, 40, 0);
             coinsCollected = 0;
             winText.color = Color.blue;
         }
@@ -73,11 +72,6 @@ public class PlayerController : MonoBehaviour {
 				}
 			}
         }
-		if ((levelName != "New Maze") && (Math.Abs(player.position.x) > bordersize || Math.Abs(player.position.z) > bordersize))
-		{
-			OutOfBounds ();
-        }
-       
     }
 
 	private void OutOfBounds(){
