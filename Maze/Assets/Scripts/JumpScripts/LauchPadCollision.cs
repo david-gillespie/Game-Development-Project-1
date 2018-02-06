@@ -8,7 +8,6 @@ public class LauchPadCollision : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            this.gameObject.SetActive(false);
             other.SendMessage("LaunchPlayer");
         }
     }

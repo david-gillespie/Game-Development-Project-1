@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour {
     private float speed = 10;
     private GameObject[] pickups;
 	private Rigidbody player;
-    private int coinsCollected;
     private string levelName;
 	private Vector3 startPosition;
     private Vector3 endPosition;
@@ -33,7 +32,6 @@ public class PlayerController : MonoBehaviour {
         if (levelName == "Jump")
         {
             jump = new Vector3(0, 40, 0);
-            coinsCollected = 0;
             winText.color = Color.blue;
         }
         else if (levelName == "New Maze")
@@ -64,24 +62,35 @@ public class PlayerController : MonoBehaviour {
             {
                 winText.color = Color.black;
                 winText.text = "";
-				SendMessage ("startTimer");
+				SendMessage ("StartTimer");
             }
 			if (Input.GetKeyDown (KeyCode.Space)) {
 				if (player.velocity.y == 0 && winText.text == "") {
 					player.AddForce (jump * speed);
 				}
 			}
+            if (winText.text == "Game Over!")
+            {
+                canMove = false;
+                player.MovePosition(startPosition);
+            }
         }
     }
 
 	private void OutOfBounds(){
-		canMove = false;
-		player.MovePosition(endPosition);
-		winText.text = "You Lose.";
-		nextGameButton.gameObject.SetActive(true);
-		player.Sleep();
-		player.WakeUp();
-	}
+        if (levelName != "Jump")
+        {
+            canMove = false;
+            player.MovePosition(endPosition);
+            winText.text = "You Lose.";
+            nextGameButton.gameObject.SetActive(true);
+            player.Sleep();
+            player.WakeUp();
+        }
+        else {
+            SendMessage("ResetPosition");
+        }
+    }
 
 	private void WinZone(){
 		player.MovePosition(endPosition);
@@ -132,11 +141,6 @@ public class PlayerController : MonoBehaviour {
     private void LaunchPlayer()
     {
         player.AddForce(launchPower * speed);
-    }
-
-    private void CoinCollected()
-    {
-        coinsCollected++;
     }
 
     private void changeScene()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System;
 using System.IO;
 
@@ -9,7 +10,6 @@ public class Timer : MonoBehaviour {
 
     public Text timerText;
     public Text pauseText;
-    public Button nextGameButton;
 	public GameObject mazeControlObject;
     
     private bool isPaused;
@@ -40,8 +40,9 @@ public class Timer : MonoBehaviour {
         r.Close();
     }
 
-	void startTimer(){
-		isPaused = false;
+	void StartTimer(){
+        if (SceneManager.GetActiveScene().name == "New Maze")
+    		isPaused = false;
 	}
 
 	// Update is called once per frame
