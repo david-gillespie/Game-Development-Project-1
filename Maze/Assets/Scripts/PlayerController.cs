@@ -6,24 +6,24 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour {
     
     public Button nextGameButton;
-    public Text winText;
-    public Rigidbody player;
+	public Text winText;
     public string startingText;
-	public GameObject mazeControlObject;
 
     private bool canMove;
     private float speed = 10;
     private GameObject[] pickups;
+	private Rigidbody player;
     private int bordersize;
     private int coinsCollected;
     private string levelName;
 	private Vector3 startPosition;
     private Vector3 endPosition;
     private Vector3 launchPower = new Vector3(0, 75, 0);
-    private Vector3 jump = new Vector3(0, 10, 0);
+    private Vector3 jump = new Vector3(0, 40, 0);
 
     void Start ()
     {
+		player = GetComponent<Rigidbody> ();
 		levelName = SceneManager.GetActiveScene().name;
         nextGameButton.onClick.AddListener(changeScene);
         startNewGame();
@@ -51,13 +51,6 @@ public class PlayerController : MonoBehaviour {
         player.WakeUp();
     }
 
-
-	private void Update ()
-    {   if (Input.GetKeyDown(KeyCode.Space))
-            if ((player.position.y == 0.5 || player.position.y == 5.5) && winText.text == "")
-            player.AddForce(jump * speed);
-	}
-
     private void FixedUpdate()
     {
         if (canMove)
@@ -74,6 +67,11 @@ public class PlayerController : MonoBehaviour {
                 winText.text = "";
 				SendMessage ("startTimer");
             }
+			if (Input.GetKeyDown (KeyCode.Space)) {
+				if (player.velocity.y == 0 && winText.text == "") {
+					player.AddForce (jump * speed);
+				}
+			}
         }
 		if ((levelName != "New Maze") && (Math.Abs(player.position.x) > bordersize || Math.Abs(player.position.z) > bordersize))
 		{
