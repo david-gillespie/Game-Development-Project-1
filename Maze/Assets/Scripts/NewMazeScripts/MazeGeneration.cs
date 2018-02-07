@@ -12,12 +12,13 @@ public class MazeGeneration : MonoBehaviour {
     public Material[] materials;
 	public GameObject mazeControlObject;
 
+	private const int numberOfGhosts = 20;
 	private const int mazeScale = 10;
 	private const int mazeOffSet = -50;
 	private const int wallSegmentSize = 10;
 	private GameObject[,] mazeArrayVertical = new GameObject[mazeScale,mazeScale];
 	private GameObject[,] mazeArrayHorizontal = new GameObject[mazeScale,mazeScale];
-	private GameObject[] ghosts = new GameObject[40];
+	private GameObject[] ghosts = new GameObject[numberOfGhosts];
 
 	void Start () {
 		FillMaze ();
@@ -27,7 +28,7 @@ public class MazeGeneration : MonoBehaviour {
 	}
 
 	void AddGhosts(){
-		for (int i = 0; i < 40; i++) {
+		for (int i = 0; i < numberOfGhosts; i++) {
 			GameObject newGhostObject = Instantiate (ghostPrefab);
 			newGhostObject.transform.SetParent (ghostParents.transform);
 			newGhostObject.transform.position = new Vector3 (((int) Mathf.Floor(Random.Range(1,mazeScale-2)))*10+mazeOffSet+5,0.01f,((int) Mathf.Floor(Random.Range(1,mazeScale-2)))*10+mazeOffSet+5);

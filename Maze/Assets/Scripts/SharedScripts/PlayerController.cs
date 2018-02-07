@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
     public string startingText;
 
     private bool canMove;
-    private float speed = 10;
+    private float speed = 100;
     private GameObject[] pickups;
 	private Rigidbody player;
     private string levelName;
@@ -94,7 +94,9 @@ public class PlayerController : MonoBehaviour {
 
 	private void WinZone(){
 		player.MovePosition(endPosition);
-		winText.text = "You Win!";
+		winText.fontSize = 27;
+        winText.color = Color.yellow;
+        winText.text = "You Win!";
 		player.Sleep();
 		player.WakeUp();
 		canMove = false;

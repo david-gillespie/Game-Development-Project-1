@@ -14,17 +14,17 @@ public class JumpTimer : MonoBehaviour {
 
 	private bool isPaused;
 	private float elapsedTime;
-	private float startingTime;
+	private const float startingTime = 30;
 	private int coinsCollected;
 	private Vector3 startPos;
 
 	void Start () {
-		StartNewGame();		
+		StartNewGame();
+		InvokeRepeating("ReduceMass", 0.0f, 2.0f);
 	}
 	
 	private void StartNewGame()
 	{
-		startingTime = 10;
 		elapsedTime = 0;
 		coinsCollected = 0;
 		startPos = transform.position;
@@ -54,7 +54,9 @@ public class JumpTimer : MonoBehaviour {
 				if (startingTime - elapsedTime <= 0)
 				{
 					pauseText.text = "Game Over!";
+					endGameText.color = Color.yellow;
 					endGameText.text = "You got " + Convert.ToString(coinsCollected) + " points!";
+					CancelInvoke("ReduceMass");
 				}
 			}
 			else
@@ -78,8 +80,13 @@ public class JumpTimer : MonoBehaviour {
 	private void ResetPosition()
 	{
 		transform.GetComponent<Rigidbody>().MovePosition(startPos);
-		transform.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
+		transform.GetComponent<Rigidbody>().Sleep();
 		if (elapsedTime + 5 > startingTime)
-			elapsedTime = startingTime;			
+			elapsedTime = startingTime;
+	}
+
+	private void ReduceMass()
+	{
+		transform.GetComponent<Rigidbody>().mass -= 0.2f;
 	}
 }
