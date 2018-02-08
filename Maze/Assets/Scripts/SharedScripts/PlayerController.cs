@@ -73,6 +73,8 @@ public class PlayerController : MonoBehaviour {
             {
                 canMove = false;
                 player.MovePosition(startPosition);
+                player.Sleep();
+                player.WakeUp();
             }
         }
     }

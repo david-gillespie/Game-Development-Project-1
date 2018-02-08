@@ -54,7 +54,7 @@ public class JumpTimer : MonoBehaviour {
 				if (startingTime - elapsedTime <= 0)
 				{
 					pauseText.text = "Game Over!";
-					endGameText.color = Color.yellow;
+					endGameText.color = Color.blue;
 					endGameText.text = "You got " + Convert.ToString(coinsCollected) + " points!";
 					CancelInvoke("ReduceMass");
 				}
