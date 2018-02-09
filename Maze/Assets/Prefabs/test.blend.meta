@@ -1,36 +1,44 @@
 fileFormatVersion: 2
-guid: 213a6c010ffc846cfa8de49691bd930c
-timeCreated: 1518210557
+guid: b9b72796009244493a3bdade2ad15bce
+timeCreated: 1518211691
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: ball_New_Material_5
-    100002: //RootNode
+    100002: Cube
     100004: grips_New_Material_6
     100006: pin_New_Material_3
     100008: rings_New_Material_4
+    100010: //RootNode
     400000: ball_New_Material_5
-    400002: //RootNode
+    400002: Cube
     400004: grips_New_Material_6
     400006: pin_New_Material_3
     400008: rings_New_Material_4
-    2100000: ball_New_Material_5Mat
-    2100002: grips_New_Material_6Mat
-    2100004: pin_New_Material_3Mat
-    2100006: rings_New_Material_4Mat
+    400010: //RootNode
+    2100000: New_Material_3
+    2100002: New_Material_6
+    2100004: New_Material_5
+    2100006: New_Material_4
+    2100008: Material
     2300000: ball_New_Material_5
-    2300002: grips_New_Material_6
-    2300004: pin_New_Material_3
-    2300006: rings_New_Material_4
+    2300002: Cube
+    2300004: grips_New_Material_6
+    2300006: pin_New_Material_3
+    2300008: rings_New_Material_4
     3300000: ball_New_Material_5
-    3300002: grips_New_Material_6
-    3300004: pin_New_Material_3
-    3300006: rings_New_Material_4
-    4300000: ball_New_Material_5
+    3300002: Cube
+    3300004: grips_New_Material_6
+    3300006: pin_New_Material_3
+    3300008: rings_New_Material_4
+    4300000: pin_New_Material_3
     4300002: grips_New_Material_6
-    4300004: pin_New_Material_3
+    4300004: ball_New_Material_5
     4300006: rings_New_Material_4
+    4300008: Cube
+    7400000: Default Take
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -105,7 +113,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
