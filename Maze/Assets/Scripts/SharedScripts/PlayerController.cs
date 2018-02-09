@@ -6,11 +6,15 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour {
     
     public Button nextGameButton;
-	public Text winText;
     public string startingText;
+    public Slider boostText;
+	public Text winText;
+    public Vector3 movespeed;
 
     private bool canMove;
-    private float speed = 100;
+    public float speed = 100;
+    private const int maxSpeed = 200;
+    private float boost;
     private GameObject[] pickups;
 	private Rigidbody player;
     private string levelName;
@@ -23,7 +27,6 @@ public class PlayerController : MonoBehaviour {
     {
 		player = GetComponent<Rigidbody> ();
 		levelName = SceneManager.GetActiveScene().name;
-        nextGameButton.onClick.AddListener(changeScene);
         startNewGame();
     }
 	
@@ -37,6 +40,12 @@ public class PlayerController : MonoBehaviour {
         else if (levelName == "New Maze")
         {
             winText.color = Color.green;
+        }
+        else if (levelName == "Race")
+        {
+            winText.color = Color.blue;
+            boost = 200;
+            boostText.value = boost;
         }
         startPosition = endPosition = player.transform.position;
         
@@ -52,12 +61,23 @@ public class PlayerController : MonoBehaviour {
     {
         if (canMove)
         {
+            if (levelName == "Race" && Input.GetKey(KeyCode.LeftShift))
+            {
+                if (boost > 1 && speed < maxSpeed)
+                    IncreaseSpeed();
+
+            }
+            else if (levelName == "Race" && boost < maxSpeed - 1)
+                RestoreBoost();
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
 
             Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
 
+            movespeed = movement * speed;
             player.AddForce(movement * speed);
+            if (speed > 100)
+                speed -= 2;
             if (winText.text == startingText && player.position != startPosition)
             {
                 winText.color = Color.black;
@@ -77,6 +97,19 @@ public class PlayerController : MonoBehaviour {
                 player.WakeUp();
             }
         }
+    }
+
+    private void IncreaseSpeed()
+    {
+        speed += 5;
+        boost -= 1;
+        boostText.value = boost;
+    }
+
+    private void RestoreBoost()
+    {
+        boost += 0.25f;
+        boostText.value = boost;
     }
 
 	private void OutOfBounds(){
@@ -102,8 +135,23 @@ public class PlayerController : MonoBehaviour {
 		player.Sleep();
 		player.WakeUp();
 		canMove = false;
+        nextGameButton.onClick.AddListener(ChangeScene);
 		nextGameButton.gameObject.SetActive(true);
 	}
+
+    private void LoseZone()
+    {
+        player.MovePosition(endPosition);
+        winText.fontSize = 27;
+        winText.color = Color.yellow;
+        winText.text = "You Lose!";
+        player.Sleep();
+        player.WakeUp();
+        canMove = false;
+        nextGameButton.gameObject.SetActive(true);
+        nextGameButton.GetComponentInChildren<Text>().text = "Restart Game";
+        nextGameButton.onClick.AddListener(RestartGame);
+    }
 
     private void Teleporter1Collision()
     {
@@ -147,17 +195,25 @@ public class PlayerController : MonoBehaviour {
         player.AddForce(launchPower * speed);
     }
 
-    private void changeScene()
+    private void RestartGame()
+    {
+        SceneManager.LoadScene(levelName);
+    }
+
+    private void ChangeScene()
     {
         
         switch (levelName)
         {
             case "Jump":
-                SceneManager.LoadScene("MainMenu");
+                SceneManager.LoadScene("Race");
                 break;
 			case "New Maze":
 				SceneManager.LoadScene ("Jump");
 				break;
+            case "Race":
+                SceneManager.LoadScene("MainMenu");
+                break;
         	default:
                 break;
         }

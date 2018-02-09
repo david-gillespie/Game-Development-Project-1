@@ -2040,6 +2040,11 @@ Prefab:
       propertyPath: mazeControlObject
       value: 
       objectReference: {fileID: 350495003}
+    - target: {fileID: 54810403317461748, guid: 0ad1f45d0b4d642138199e62964aa7cc,
+        type: 2}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ad1f45d0b4d642138199e62964aa7cc, type: 2}
   m_IsPrefabParent: 0

@@ -10,6 +10,9 @@ public class WinTower : MonoBehaviour {
 		if (other.CompareTag ("Player")) {
 			player.SendMessage ("WinZone");
 		}
+		else if (other.CompareTag("AI")) {
+			player.SendMessage("LoseZone");
+		}
 	}
 
 }

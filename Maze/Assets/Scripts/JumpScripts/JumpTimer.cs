@@ -20,7 +20,6 @@ public class JumpTimer : MonoBehaviour {
 
 	void Start () {
 		StartNewGame();
-		InvokeRepeating("ReduceMass", 0.0f, 2.0f);
 	}
 	
 	private void StartNewGame()
@@ -37,6 +36,7 @@ public class JumpTimer : MonoBehaviour {
 		if (SceneManager.GetActiveScene().name == "Jump")
 		{
 			isPaused = false;
+			InvokeRepeating("ReduceMass", 0.0f, 2.0f);
 		}
 	}
 	

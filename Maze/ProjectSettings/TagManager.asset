@@ -12,6 +12,7 @@ TagManager:
   - High Scores
   - MiniMap
   - boundary
+  - AI
   layers:
   - Default
   - TransparentFX
