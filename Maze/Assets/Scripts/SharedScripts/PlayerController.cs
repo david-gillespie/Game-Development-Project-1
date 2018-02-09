@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
     public Vector3 movespeed;
 
     private bool canMove;
-    public float speed = 100;
+    private float speed = 100;
     private const int maxSpeed = 200;
     private float boost;
     private GameObject[] pickups;
