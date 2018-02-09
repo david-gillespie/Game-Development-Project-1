@@ -5,13 +5,20 @@ using UnityEngine;
 public class WinTower : MonoBehaviour {
 	public GameObject player;
 
+	private bool hasWon = false;
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag ("Player")) {
+		if (other.CompareTag ("Player") && !hasWon) {
+			hasWon = true;
 			player.SendMessage ("WinZone");
 		}
 		else if (other.CompareTag("AI")) {
-			player.SendMessage("LoseZone");
+			if (!hasWon)
+			{
+				player.SendMessage("LoseZone");
+			}
+			hasWon = true;
+			other.SendMessage("WinZone");
 		}
 	}
 
