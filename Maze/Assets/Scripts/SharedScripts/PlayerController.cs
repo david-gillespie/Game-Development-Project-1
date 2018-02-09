@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     public Vector3 movespeed;
 
     private bool canMove;
+	private bool grounded;
     private float speed = 100;
 	private float boost;
     private const int maxSpeed = 200;
@@ -87,7 +88,7 @@ public class PlayerController : MonoBehaviour {
 				SendMessage ("StartTimer");
             }
 			if (Input.GetKeyDown (KeyCode.Space)) {
-				if (player.velocity.y == 0 && winText.text == "") {
+				if (grounded && winText.text == "") {
 					player.AddForce (jump * speed);
 				}
 			}
@@ -220,4 +221,12 @@ public class PlayerController : MonoBehaviour {
                 break;
         }
     }
+
+	private void OnCollisionEnter(){
+		grounded = true;
+	}
+
+	private void OnCollisionExit(){
+		grounded = false;
+	}
 }
