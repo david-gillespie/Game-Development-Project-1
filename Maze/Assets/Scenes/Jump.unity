@@ -1518,14 +1518,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 4688660236019760, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.10000011
-      objectReference: {fileID: 0}
-    - target: {fileID: 4688660236019760, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1753767683951538, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
       propertyPath: m_Name
       value: Coin (19)
@@ -2983,7 +2975,6 @@ MonoBehaviour:
   boostText: {fileID: 0}
   winText: {fileID: 688367272}
   movespeed: {x: 0, y: 0, z: 0}
-  speed: 100
 --- !u!54 &1023566689
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4648,14 +4639,6 @@ Prefab:
     - target: {fileID: 4688660236019760, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
       propertyPath: m_RootOrder
       value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 4688660236019760, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.10000011
-      objectReference: {fileID: 0}
-    - target: {fileID: 4688660236019760, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1753767683951538, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
       propertyPath: m_Name

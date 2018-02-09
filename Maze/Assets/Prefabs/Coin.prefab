@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 136772832981383700}
   - component: {fileID: 23068571183203516}
   - component: {fileID: 114398462616679110}
+  - component: {fileID: 64298309848960060}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -73,8 +74,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1753767683951538}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.10000006, z: 1}
+  m_LocalPosition: {x: -7.5, y: 1, z: 7.5}
+  m_LocalScale: {x: 1, y: 0.10000011, z: 1}
   m_Children:
   - {fileID: 4915875661344172}
   - {fileID: 4944484910701536}
@@ -230,6 +231,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1609002240579862}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &64298309848960060
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1753767683951538}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!64 &64554981054957814
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -238,7 +253,7 @@ MeshCollider:
   m_GameObject: {fileID: 1609002240579862}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -252,7 +267,7 @@ MeshCollider:
   m_GameObject: {fileID: 1325570778771256}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -277,7 +292,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1753767683951538}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1

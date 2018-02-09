@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour {
 
     private bool canMove;
     private float speed = 100;
+	private float boost;
     private const int maxSpeed = 200;
-    private float boost;
     private GameObject[] pickups;
 	private Rigidbody player;
     private string levelName;
@@ -61,14 +61,15 @@ public class PlayerController : MonoBehaviour {
     {
         if (canMove)
         {
-            if (levelName == "Race" && Input.GetKey(KeyCode.LeftShift))
-            {
-                if (boost > 1 && speed < maxSpeed)
-                    IncreaseSpeed();
+			if (levelName == "Race" && Input.GetKey (KeyCode.LeftShift)) {
+				if (boost > 1 && speed < maxSpeed) {
+					IncreaseSpeed ();
+				}
 
-            }
-            else if (levelName == "Race" && boost < maxSpeed - 1)
-                RestoreBoost();
+			} else if (levelName == "Race" && boost < maxSpeed - 1) {
+				RestoreBoost ();
+			}
+
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
 
@@ -76,8 +77,9 @@ public class PlayerController : MonoBehaviour {
 
             movespeed = movement * speed;
             player.AddForce(movement * speed);
-            if (speed > 100)
-                speed -= 2;
+			if (speed > 100) {
+				speed -= 2;
+			}
             if (winText.text == startingText && player.position != startPosition)
             {
                 winText.color = Color.black;
