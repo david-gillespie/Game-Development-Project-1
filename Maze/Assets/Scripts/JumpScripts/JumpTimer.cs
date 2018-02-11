@@ -12,9 +12,10 @@ public class JumpTimer : MonoBehaviour {
 	public Text pointsText;
 	public Text endGameText;
 
+	private const float startingTime = 3;
 	private bool isPaused;
 	private float elapsedTime;
-	private const float startingTime = 30;
+	private GameObject player;
 	private int coinsCollected;
 	private Vector3 startPos;
 
@@ -30,6 +31,7 @@ public class JumpTimer : MonoBehaviour {
 		isPaused = true;
 		timerText.text = Convert.ToString(startingTime);
 		endGameText.text = "";
+		player = GameObject.FindGameObjectWithTag("Player");
 	}
 
 	private void StartTimer() {
@@ -55,6 +57,7 @@ public class JumpTimer : MonoBehaviour {
 				{
 					pauseText.text = "Game Over!";
 					endGameText.color = Color.blue;
+					player.SendMessage("ChangeButtonScene");
 					endGameText.text = "You got " + Convert.ToString(coinsCollected) + " points!";
 					CancelInvoke("ReduceMass");
 				}

@@ -1,5 +1,6 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using System;
 using UnityEngine.SceneManagement;
 
@@ -89,7 +90,7 @@ public class PlayerController : MonoBehaviour {
             {
                 winText.color = Color.black;
                 winText.text = "";
-				//SendMessage ("StartTimer");
+				SendMessage ("StartTimer");
             }
 			if (Input.GetKeyDown (KeyCode.Space)) {
 				if (grounded && winText.text == "") {
@@ -148,8 +149,10 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void ChangeButtonScene(){
-		nextGameButton.onClick.AddListener(ChangeScene);
+        print("a");
 		nextGameButton.gameObject.SetActive(true);
+        if (levelName != "Jump")
+        { nextGameButton.onClick.AddListener(ChangeScene); }
 	}
 
     private void LoseZone()
@@ -215,7 +218,7 @@ public class PlayerController : MonoBehaviour {
 
     private void ChangeScene()
     {
-        
+        print(levelName);
         switch (levelName)
         {
             case "Jump":
