@@ -10,7 +10,8 @@ public class WinTower : MonoBehaviour {
 	{
 		if (other.CompareTag ("Player") && !hasWon) {
 			hasWon = true;
-			player.SendMessage ("WinZone");
+			other.SendMessage ("WinZone");
+			print ("test");
 		}
 		else if (other.CompareTag("AI")) {
 			if (!hasWon)

@@ -13,6 +13,7 @@ TagManager:
   - MiniMap
   - boundary
   - AI
+  - GameObject
   layers:
   - Default
   - TransparentFX

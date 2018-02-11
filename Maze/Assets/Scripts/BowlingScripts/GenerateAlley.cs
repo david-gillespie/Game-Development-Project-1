@@ -8,6 +8,7 @@ public class GenerateAlley : MonoBehaviour {
 	public GameObject generateStartPosition;
 	public GameObject bowlingPins;
 	public Material[] materials;
+	public GameObject scoreController;
 
 	private Vector3 startPosition;
 
@@ -20,8 +21,7 @@ public class GenerateAlley : MonoBehaviour {
 		startPosition = generateStartPosition.transform.position;
 
 		int startPos = (int) generateStartPosition.transform.position.z;
-		int endPos = -45;
-		long difference = 500;
+		long difference = 50;
 
 		Vector3 nextPosition = startPosition;
 		float rotation = -30.0f;
@@ -35,9 +35,12 @@ public class GenerateAlley : MonoBehaviour {
 			go.transform.position = nextPosition;
 			go.transform.rotation = Quaternion.Euler (-newRotation,0.0f,rotationVariance);
 			go.GetComponent<Renderer>().material = materials[i%2];
+
 			rotationVariance = newVariance (rotationVariance, 20.0f, 2.0f);
-			oldRotation = newRotation;
-			newRotation = Random.Range (0, variance) + 5.0f + rotation;
+
+			oldRotation = newRotation; // Used to generate next object generation point
+			newRotation = Random.Range (0, variance)  + rotation;
+
 			if (i+1 >= difference) {
 				nextPosition = findNextCenter (go.transform.position, oldRotation, 0.0f);
 				nextPosition.z += 12.0f;
@@ -46,6 +49,11 @@ public class GenerateAlley : MonoBehaviour {
 			}
 		}
 		go = Instantiate (bowlingPins);
+		PinController[] objects = go.GetComponentsInChildren<PinController> ();
+		for(int i = 0; i<objects.Length;i++){
+
+		}
+		go.SendMessage ("defineScoreController", scoreController);
 		go.transform.position = nextPosition;
 	}
 

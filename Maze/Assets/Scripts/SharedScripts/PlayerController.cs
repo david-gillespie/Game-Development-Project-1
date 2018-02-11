@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour {
             {
                 winText.color = Color.black;
                 winText.text = "";
-				SendMessage ("StartTimer");
+				//SendMessage ("StartTimer");
             }
 			if (Input.GetKeyDown (KeyCode.Space)) {
 				if (grounded && winText.text == "") {
@@ -144,7 +144,11 @@ public class PlayerController : MonoBehaviour {
 		player.Sleep();
 		player.WakeUp();
 		canMove = false;
-        nextGameButton.onClick.AddListener(ChangeScene);
+		ChangeButtonScene ();
+	}
+
+	private void ChangeButtonScene(){
+		nextGameButton.onClick.AddListener(ChangeScene);
 		nextGameButton.gameObject.SetActive(true);
 	}
 
@@ -228,11 +232,15 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-	private void OnCollisionEnter(){
-		grounded = true;
+	private void OnCollisionEnter(Collision collision){
+		if(collision.gameObject.tag == "Untagged"){
+			grounded = true;
+		}
 	}
 
-	private void OnCollisionExit(){
-		grounded = false;
+	private void OnCollisionExit(Collision collision){
+		if(collision.gameObject.tag == "Untagged"){
+			grounded = false;
+		}
 	}
 }
