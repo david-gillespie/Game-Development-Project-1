@@ -149,10 +149,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void ChangeButtonScene(){
-        print("a");
 		nextGameButton.gameObject.SetActive(true);
-        if (levelName != "Jump")
-        { nextGameButton.onClick.AddListener(ChangeScene); }
+		nextGameButton.onClick.AddListener (ChangeScene);
 	}
 
     private void LoseZone()

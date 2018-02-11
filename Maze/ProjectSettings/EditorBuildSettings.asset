@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 5465c642e1ad1a74a8580dc22283dac1
+  - enabled: 1
+    path: Assets/Scenes/Race.unity
+    guid: e80b86b77f448df46b9dcb6a89645ab3
+  - enabled: 1
+    path: Assets/Scenes/Bowling.unity
+    guid: 50e3e275ca68e4d51a29d63b93ff69d0
   - enabled: 0
     path: Assets/Scenes/Maze.unity
     guid: 34e256e0c1dd3ab4fa49be5e5620d8e1
