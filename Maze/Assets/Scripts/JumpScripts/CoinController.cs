@@ -5,7 +5,6 @@ using UnityEngine;
 public class CoinController : MonoBehaviour {
 
 	private Vector3 startingPos;
-	private Vector3 rotate;
 	private float bounce = 0.2f;
 	private float speed = 0.005f;
 	private int directionUp = 1;
@@ -17,7 +16,6 @@ public class CoinController : MonoBehaviour {
 		} else {
 			directionUp = -1;
 		}
-		rotate = new Vector3 (0,1,0);
 	}
 	
 	void Update () {
