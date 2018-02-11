@@ -13,8 +13,10 @@ public class PlayerController : MonoBehaviour {
 
     private bool canMove;
 	private bool grounded;
+    private bool isBoosting;
     private float speed = 100;
 	private float boost;
+    private const int minSpeed = 75;
     private const int maxSpeed = 200;
     private GameObject[] pickups;
 	private Rigidbody player;
@@ -44,7 +46,9 @@ public class PlayerController : MonoBehaviour {
         }
         else if (levelName == "Race")
         {
+            speed = minSpeed;
             winText.color = Color.blue;
+            isBoosting = false;
             boost = 200;
             boostText.value = boost;
         }
@@ -62,12 +66,12 @@ public class PlayerController : MonoBehaviour {
     {
         if (canMove)
         {
-			if (levelName == "Race" && Input.GetKey (KeyCode.LeftShift)) {
+			if (levelName == "Race" && player.position != startPosition && Input.GetKey (KeyCode.LeftShift)) {
 				if (boost > 1 && speed < maxSpeed) {
 					IncreaseSpeed ();
 				}
 
-			} else if (levelName == "Race" && boost < maxSpeed - 1) {
+			} else if (levelName == "Race" && boost < maxSpeed - 1 && !isBoosting) {
 				RestoreBoost ();
 			}
 
@@ -77,8 +81,8 @@ public class PlayerController : MonoBehaviour {
             Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
 
             movespeed = movement * speed;
-            player.AddForce(movement * speed);
-			if (speed > 100) {
+            player.AddForce(movespeed);
+			if ((levelName == "Race" && speed > minSpeed) || speed > 100) {
 				speed -= 2;
 			}
             if (winText.text == startingText && player.position != startPosition)
@@ -99,6 +103,7 @@ public class PlayerController : MonoBehaviour {
                 player.Sleep();
                 player.WakeUp();
             }
+            isBoosting = false;
         }
     }
 
@@ -107,11 +112,12 @@ public class PlayerController : MonoBehaviour {
         speed += 5;
         boost -= 1;
         boostText.value = boost;
+        isBoosting = true;
     }
 
     private void RestoreBoost()
     {
-        boost += 0.25f;
+        boost += 0.5f;
         boostText.value = boost;
     }
 
