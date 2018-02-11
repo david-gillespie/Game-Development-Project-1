@@ -23,9 +23,9 @@ public class AIController : MonoBehaviour {
 		shouldMove = false;
 	}
 	
-	void Update () {
+	void FixedUpdate () {
 		if (shouldMove && rb.position.z < 2000) {
-			float speed = Random.Range(1, 1.1f);
+			float speed = 1;//Random.Range(0.1f, 10);
 			// if its too far over to left/right
 			if (Mathf.Abs(transform.position.x) > 30)
 			{
@@ -33,27 +33,27 @@ public class AIController : MonoBehaviour {
 				if (transform.position.x >= 30)
 				{
 					force = new Vector3(
-						Random.Range(-50, 0), 0.0f, Random.Range(10, 15)
+						Random.Range(-50, 0), 0.0f, Random.Range(100, 175)
 					) * speed;
 				}
 				else
 				{
 					force = new Vector3(
-						Random.Range(0, 50), 0.0f, Random.Range(10, 15)
+						Random.Range(0, 50), 0.0f, Random.Range(100, 175)
 					) * speed;
 				}
 			}
 			else
 			{
 				force = new Vector3(
-				Random.Range(-100, 100), 0.0f, Random.Range(10, 15)
+				Random.Range(-100, 100), 0.0f, Random.Range(100, 175)
 				) * speed;
 			}
 			rb.AddForce(force);
 		}
 		else
 		{
-			if (player.transform.position != startpos && text.text == "")
+			if (player.transform.position != playerstartpos && text.text == "")
 			{
 				shouldMove = !shouldMove;
 			}
