@@ -8,5 +8,6 @@ public class ScoreController : MonoBehaviour {
 
 	private void PinCollision(){
 		score++;
+		print (score);
 	}
 }

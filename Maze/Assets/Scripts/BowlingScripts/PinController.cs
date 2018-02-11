@@ -5,6 +5,7 @@ using UnityEngine;
 public class PinController : MonoBehaviour {
 
 	public GameObject pinScoreController;
+	bool hasCounted = false;
 
 	void Start () {
 		
@@ -15,9 +16,10 @@ public class PinController : MonoBehaviour {
 	}
 
 	private void OnCollisionExit(Collision collision){
-		if(collision.gameObject.tag == "Untagged"){
+		if(collision.gameObject.tag == "Untagged" && !hasCounted){
 			//Left the ground at least for a moment
-
+			pinScoreController.SendMessage("PinCollision");
+			hasCounted = true;
 		}
 	}
 

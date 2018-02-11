@@ -20,7 +20,6 @@ public class GenerateAlley : MonoBehaviour {
 
 		startPosition = generateStartPosition.transform.position;
 
-		int startPos = (int) generateStartPosition.transform.position.z;
 		long difference = 50;
 
 		Vector3 nextPosition = startPosition;
@@ -51,9 +50,8 @@ public class GenerateAlley : MonoBehaviour {
 		go = Instantiate (bowlingPins);
 		PinController[] objects = go.GetComponentsInChildren<PinController> ();
 		for(int i = 0; i<objects.Length;i++){
-
+			objects [i].pinScoreController = scoreController;
 		}
-		go.SendMessage ("defineScoreController", scoreController);
 		go.transform.position = nextPosition;
 	}
 
