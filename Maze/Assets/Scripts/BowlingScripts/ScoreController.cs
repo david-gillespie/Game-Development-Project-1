@@ -24,6 +24,7 @@ public class ScoreController : MonoBehaviour {
 				player.SendMessage ("LoseZone");
 				scoreText.text = "You only got " + score.ToString()+" :(";
 			}
+			player.SendMessage ("PauseTimer");
 		} else if (!isOver && firstCollision && Time.time - lastHit > 5) {
 			isOver = true;
 			if (score >= 5) {
@@ -33,6 +34,7 @@ public class ScoreController : MonoBehaviour {
 				player.SendMessage ("LoseZone");
 				scoreText.text = "You only got " + score.ToString()+" :(";
 			}
+			player.SendMessage ("PauseTimer");
 		}
 
 		if (player.transform.position.y < lowestBounds) {
@@ -44,6 +46,7 @@ public class ScoreController : MonoBehaviour {
 				player.SendMessage ("LoseZone");
 				scoreText.text = "You only got " + score.ToString()+" :(";
 			}
+			player.SendMessage ("PauseTimer");
 		}
 	}
 
