@@ -58,7 +58,8 @@ public class Timer : MonoBehaviour {
             else if (pauseText.text == "You Win!")
             {
                 isPaused = true;
-				Scores.createRunningScore (200.0f-float.Parse (timerText.text));
+				//Scores.createRunningScore (200.0f-float.Parse (timerText.text));
+				Scores.AddToScores (200.0f-float.Parse (timerText.text) + Scores.readRunningScore());
 				print (Scores.readRunningScore ());
             }
         }
