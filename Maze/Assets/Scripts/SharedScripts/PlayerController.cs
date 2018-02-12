@@ -220,13 +220,16 @@ public class PlayerController : MonoBehaviour {
         switch (levelName)
         {
             case "Jump":
-                SceneManager.LoadScene("Race");
+                SceneManager.LoadScene("New Maze");
                 break;
 			case "New Maze":
-				SceneManager.LoadScene ("Jump");
+				SceneManager.LoadScene ("MainMenu");
 				break;
             case "Race":
-                SceneManager.LoadScene("MainMenu");
+                SceneManager.LoadScene("Jump");
+                break;
+            case "Bowling":
+                SceneManager.LoadScene("Race");
                 break;
         	default:
                 break;
