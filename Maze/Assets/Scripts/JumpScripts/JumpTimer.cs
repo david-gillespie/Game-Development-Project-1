@@ -58,7 +58,7 @@ public class JumpTimer : MonoBehaviour {
 					pauseText.text = "Game Over!";
 					endGameText.color = Color.blue;
 					player.SendMessage("ChangeButtonScene");
-					endGameText.text = "You got " + Convert.ToString(coinsCollected) + " points!";
+					endGameText.text = "You got " + coinsCollected.ToString() + " points!";
 					CancelInvoke("ReduceMass");
 				}
 			}
