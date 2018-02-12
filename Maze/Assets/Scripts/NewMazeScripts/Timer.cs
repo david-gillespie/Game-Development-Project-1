@@ -34,7 +34,6 @@ public class Timer : MonoBehaviour {
         while ((line = r.ReadLine()) != null && lineNumber < 11)
         {
             scores[lineNumber] = Convert.ToDouble(line);
-            print(scores[lineNumber]);
             lineNumber++;
         }
         r.Close();
@@ -59,7 +58,8 @@ public class Timer : MonoBehaviour {
             else if (pauseText.text == "You Win!")
             {
                 isPaused = true;
-                AddToScores(Convert.ToDouble(timerText.text));
+				Scores.createRunningScore (200.0f-float.Parse (timerText.text));
+				print (Scores.readRunningScore ());
             }
         }
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -76,32 +76,5 @@ public class Timer : MonoBehaviour {
         }
 
     }
-
-    public void AddToScores(double newScore)
-    {
-        string scoresToWrite = "";
-        int spotToAdd = -1;
-        for (int i = 0; i < scores.Length; i++)
-        {
-            if (newScore < scores[i])
-            {
-                spotToAdd = i;
-                break;
-            }
-        }
-        if (spotToAdd != -1)
-        {
-            for (int i = scores.Length; i >= spotToAdd; i--)
-            {
-                if (i + 1 < scores.Length)
-                    scores[i + 1] = scores[i];
-            }
-            scores[spotToAdd] = newScore;
-        }
-        for (int i = 0; i < scores.Length; i++)
-        {
-            scoresToWrite += Convert.ToString(scores[i]) + "\n";
-        }        
-        File.WriteAllText(path, scoresToWrite);
-    }
+		
 }

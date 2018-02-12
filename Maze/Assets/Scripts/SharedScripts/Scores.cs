@@ -6,16 +6,16 @@ using System.IO;
 
 public static class Scores {
 	
-	private double[] scores = new double[10];
-	private StreamReader r;
+	private static double[] scores = new double[10];
+	private static StreamReader r;
 	private const string path = "./Assets/Resources/scores.txt";
 	private const string runningScoresPath = "./Assets/Resources/runningScore.txt";
 
-	public void createRunningScore(float value){
+	public static void createRunningScore(float value){
 		System.IO.File.WriteAllText(runningScoresPath, value.ToString());
 	}
 
-	public float readRunningScore(){
+	public static float readRunningScore(){
 		r = File.OpenText(runningScoresPath);
 		string line;
 		line = r.ReadLine ();
@@ -26,7 +26,7 @@ public static class Scores {
 		return float.Parse (line);
 	}
 
-	public void AddToScores(double newScore)
+	public static void AddToScores(double newScore)
 	{
 		string scoresToWrite = "";
 		int spotToAdd = -1;
