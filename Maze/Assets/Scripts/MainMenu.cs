@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviour {
     
     private void StartGame()
     {
-        SceneManager.LoadScene("New Maze");
+        SceneManager.LoadScene("Bowling");
     }
 
     private void ShowHighScores()
