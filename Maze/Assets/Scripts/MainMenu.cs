@@ -28,6 +28,7 @@ public class MainMenu : MonoBehaviour {
     {
         SceneManager.LoadScene("New Maze");
     }
+
     private void ShowHighScores()
     {
         devNames.gameObject.SetActive(false);

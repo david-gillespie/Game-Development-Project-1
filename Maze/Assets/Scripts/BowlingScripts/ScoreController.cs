@@ -13,6 +13,7 @@ public class ScoreController : MonoBehaviour {
 	private bool isOver = false;
 	private bool firstCollision = false;
 	private float lastHit;
+	private bool scoresWritten = false;
 
 	void Update(){
 		if (firstCollision && !isOver && player.GetComponent<Rigidbody> ().velocity.magnitude == 0) {
@@ -48,11 +49,16 @@ public class ScoreController : MonoBehaviour {
 			}
 			player.SendMessage ("PauseTimer");
 		}
+
+		if (isOver && !scoresWritten) {
+			scoresWritten = true;
+			print (Scores.readRunningScore ());
+			Scores.AddToScores (Scores.readRunningScore()+(score*5));
+		}
 	}
 
 	private void PinCollision(){
 		score++;
-		print (score);
 		firstCollision = true;
 		lastHit = Time.time;
 	}

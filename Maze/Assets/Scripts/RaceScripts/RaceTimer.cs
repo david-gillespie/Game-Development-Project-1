@@ -10,6 +10,7 @@ public class RaceTimer : MonoBehaviour {
 	public Text winText;
 
 	private bool isPaused;
+	private bool hasWon = false;
 	private float elapsedTime;
 	void Start () {
 		StartNewGame();
@@ -37,6 +38,9 @@ public class RaceTimer : MonoBehaviour {
                 elapsedTime += Time.deltaTime;
 				seconds = elapsedTime.ToString("f1");
                 timerText.text = seconds;
+			}else if(winText.text == "You Win!" && !hasWon){
+				hasWon = true;
+				Scores.createRunningScore (Scores.readRunningScore ()+40.0f-float.Parse(timerText.text));
 			}
 		}
 	}
