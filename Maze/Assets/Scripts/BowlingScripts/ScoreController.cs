@@ -50,10 +50,10 @@ public class ScoreController : MonoBehaviour {
 			player.SendMessage ("PauseTimer");
 		}
 
-		if (isOver && !scoresWritten) {
+		if (score > 5 && isOver && !scoresWritten) {
 			scoresWritten = true;
 			print (Scores.readRunningScore ());
-			Scores.AddToScores (Scores.readRunningScore()+(score*5));
+			Scores.AddToScores (Mathf.Round(Scores.readRunningScore()+(score*5)));
 		}
 	}
 

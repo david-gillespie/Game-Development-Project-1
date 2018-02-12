@@ -28,11 +28,12 @@ public static class Scores {
 
 	public static void AddToScores(double newScore)
 	{
+		readScores ();
 		string scoresToWrite = "";
 		int spotToAdd = -1;
 		for (int i = 0; i < scores.Length; i++)
 		{
-			if (newScore < scores[i])
+			if (newScore > scores[i])
 			{
 				spotToAdd = i;
 				break;
@@ -54,4 +55,18 @@ public static class Scores {
 		File.WriteAllText(path, scoresToWrite);
 	}
 
+	public static double[] readScores(){
+		r = File.OpenText(path);
+		string line;
+		int lineNumber = 0;
+		// reading and writing to file from here :
+		// https://docs.microsoft.com/en-us/dotnet/standard/io/how-to-open-and-append-to-a-log-file
+		while ((line = r.ReadLine()) != null && lineNumber < 11)
+		{
+			scores[lineNumber] = Convert.ToDouble(line);
+			lineNumber++;
+		}
+		r.Close();
+		return scores;
+	}
 }

@@ -22,7 +22,7 @@ public class GenerateAlley : MonoBehaviour {
 
 		startPosition = generateStartPosition.transform.position;
 
-		long difference = 200;
+		long difference = 150;
 
 		Vector3 nextPosition = startPosition;
 		float rotation = -30.0f;
