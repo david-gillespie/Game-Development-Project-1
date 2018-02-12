@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
     
+    public AudioClip audioClip;
     public Button nextGameButton;
     public string startingText;
     public Slider boostText;
@@ -40,6 +41,8 @@ public class PlayerController : MonoBehaviour {
         {
             jump = new Vector3(0, 40, 0);
             winText.color = Color.blue;
+            GetComponent<AudioSource> ().playOnAwake = false;
+            GetComponent<AudioSource> ().clip = audioClip;
         }
         else if (levelName == "New Maze")
         {

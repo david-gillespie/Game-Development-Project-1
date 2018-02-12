@@ -12,7 +12,7 @@ public class JumpTimer : MonoBehaviour {
 	public Text pointsText;
 	public Text endGameText;
 
-	private const float startingTime = 3;
+	private const float startingTime = 30;
 	private bool isPaused;
 	private float elapsedTime;
 	private GameObject player;

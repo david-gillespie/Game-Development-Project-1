@@ -16,7 +16,7 @@ public class GhostCollision : MonoBehaviour {
     {
         if (collision.collider.CompareTag("Player"))
         {
-            collision.collider.GetComponent<AudioSource> ().Play ();
+            GetComponent<AudioSource> ().Play ();
             collision.collider.SendMessage("EnemyCollision");
         }
     }
