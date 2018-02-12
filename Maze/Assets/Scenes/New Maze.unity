@@ -730,6 +730,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1419820248035436, guid: e43c32143934562429d21fac0790d822, type: 2}
+      propertyPath: m_TagString
+      value: GameObject
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e43c32143934562429d21fac0790d822, type: 2}
   m_IsPrefabParent: 0
@@ -993,6 +997,10 @@ Prefab:
     - target: {fileID: 4990238753460114, guid: e43c32143934562429d21fac0790d822, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419820248035436, guid: e43c32143934562429d21fac0790d822, type: 2}
+      propertyPath: m_TagString
+      value: GameObject
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e43c32143934562429d21fac0790d822, type: 2}
@@ -1440,7 +1448,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1510054116
 GameObject:
@@ -1620,6 +1628,10 @@ Prefab:
     - target: {fileID: 4990238753460114, guid: e43c32143934562429d21fac0790d822, type: 2}
       propertyPath: m_LocalScale.z
       value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419820248035436, guid: e43c32143934562429d21fac0790d822, type: 2}
+      propertyPath: m_TagString
+      value: GameObject
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e43c32143934562429d21fac0790d822, type: 2}
@@ -2179,6 +2191,10 @@ Prefab:
     - target: {fileID: 4990238753460114, guid: e43c32143934562429d21fac0790d822, type: 2}
       propertyPath: m_LocalScale.z
       value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419820248035436, guid: e43c32143934562429d21fac0790d822, type: 2}
+      propertyPath: m_TagString
+      value: GameObject
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e43c32143934562429d21fac0790d822, type: 2}
