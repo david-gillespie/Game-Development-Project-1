@@ -1040,6 +1040,16 @@ Prefab:
       propertyPath: m_Name
       value: Coin (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
   m_IsPrefabParent: 0
@@ -1197,6 +1207,16 @@ Prefab:
       propertyPath: m_Name
       value: Coin (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
   m_IsPrefabParent: 0
@@ -1256,6 +1276,16 @@ Prefab:
       propertyPath: m_Name
       value: Coin (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
   m_IsPrefabParent: 0
@@ -1471,6 +1501,16 @@ Prefab:
       propertyPath: m_Name
       value: Coin (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
   m_IsPrefabParent: 0
@@ -1521,6 +1561,16 @@ Prefab:
     - target: {fileID: 1753767683951538, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
       propertyPath: m_Name
       value: Coin (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
@@ -1659,6 +1709,16 @@ Prefab:
       propertyPath: m_Name
       value: Coin (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
   m_IsPrefabParent: 0
@@ -1795,6 +1855,16 @@ Prefab:
     - target: {fileID: 1753767683951538, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
       propertyPath: m_Name
       value: Coin (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
@@ -2118,6 +2188,16 @@ Prefab:
       propertyPath: m_Name
       value: Coin (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
   m_IsPrefabParent: 0
@@ -2353,6 +2433,16 @@ Prefab:
       propertyPath: m_Name
       value: Coin (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
   m_IsPrefabParent: 0
@@ -2652,6 +2742,16 @@ Prefab:
       propertyPath: m_Name
       value: Coin (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
   m_IsPrefabParent: 0
@@ -2710,6 +2810,16 @@ Prefab:
     - target: {fileID: 1753767683951538, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
       propertyPath: m_Name
       value: Coin (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
@@ -2863,6 +2973,21 @@ Prefab:
     - target: {fileID: 1753767683951538, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
       propertyPath: m_Name
       value: Coin (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
+    - target: {fileID: 136772832981383700, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
@@ -3283,6 +3408,16 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
   m_IsPrefabParent: 0
@@ -3582,6 +3717,16 @@ Prefab:
       propertyPath: m_Name
       value: Coin (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
   m_IsPrefabParent: 0
@@ -3689,6 +3834,16 @@ Prefab:
       propertyPath: m_Name
       value: Coin (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
   m_IsPrefabParent: 0
@@ -3924,6 +4079,21 @@ Prefab:
       propertyPath: m_Name
       value: Coin (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64298309848960060, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
   m_IsPrefabParent: 0
@@ -4061,6 +4231,16 @@ Prefab:
       propertyPath: m_Name
       value: Coin (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
   m_IsPrefabParent: 0
@@ -4119,6 +4299,16 @@ Prefab:
     - target: {fileID: 1753767683951538, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
       propertyPath: m_Name
       value: Coin (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
@@ -4253,6 +4443,16 @@ Prefab:
       propertyPath: m_Name
       value: Coin (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
   m_IsPrefabParent: 0
@@ -4311,6 +4511,16 @@ Prefab:
     - target: {fileID: 1753767683951538, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
       propertyPath: m_Name
       value: Coin (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
@@ -4446,6 +4656,16 @@ Prefab:
     - target: {fileID: 1753767683951538, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
       propertyPath: m_Name
       value: Coin (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
@@ -4643,6 +4863,16 @@ Prefab:
     - target: {fileID: 1753767683951538, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
       propertyPath: m_Name
       value: Coin (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
@@ -4858,6 +5088,16 @@ Prefab:
     - target: {fileID: 1753767683951538, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
       propertyPath: m_Name
       value: Coin (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
@@ -5104,6 +5344,16 @@ Prefab:
       propertyPath: m_Name
       value: Coin (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42e25af123bffa847affc81ec13b2fdc, type: 3}
+    - target: {fileID: 82846752918340662, guid: cbcb1d0b16728014e891ca96426027ba,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbcb1d0b16728014e891ca96426027ba, type: 2}
   m_IsPrefabParent: 0
@@ -5112,6 +5362,115 @@ Transform:
   m_PrefabParentObject: {fileID: 4688660236019760, guid: cbcb1d0b16728014e891ca96426027ba,
     type: 2}
   m_PrefabInternal: {fileID: 2079833641}
+--- !u!1 &2082050133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2082050135}
+  - component: {fileID: 2082050134}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &2082050134
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2082050133}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5f835d3bd7545c54da81bdfcff7fd1f6, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!4 &2082050135
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2082050133}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.063018, y: -8.52631, z: 6.6596336}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2142154639
 GameObject:
   m_ObjectHideFlags: 0

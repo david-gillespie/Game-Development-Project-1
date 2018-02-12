@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class CoinCollision : MonoBehaviour {
 
+    public AudioClip audioClip;
+
+    void Start ()   
+    {
+        GetComponent<AudioSource> ().playOnAwake = false;
+        GetComponent<AudioSource> ().clip = audioClip;
+    }   
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+            if (other.CompareTag("Player"))
         {
-            this.gameObject.SetActive(false);
+            GetComponent<AudioSource> ().Play ();
+            //this.gameObject.SetActive(false);
             other.SendMessage("CoinCollected");
         }
     }

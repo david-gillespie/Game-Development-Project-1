@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class GhostCollision : MonoBehaviour {
 
+    public AudioClip audioClip;
+
+    void Start ()   
+    {
+        GetComponent<AudioSource> ().playOnAwake = false;
+        GetComponent<AudioSource> ().clip = audioClip;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Player"))
         {
+            collision.collider.GetComponent<AudioSource> ().Play ();
             collision.collider.SendMessage("EnemyCollision");
         }
     }
