@@ -59,20 +59,24 @@ public class Timer : MonoBehaviour {
             {
                 isPaused = true;
 				//Scores.createRunningScore (200.0f-float.Parse (timerText.text));
-				Scores.AddToScores (200.0f-float.Parse (timerText.text) + Scores.readRunningScore());
+				Scores.AddToScores (Mathf.Round(200.0f-float.Parse (timerText.text) + Scores.readRunningScore()));
 				print (Scores.readRunningScore ());
             }
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            isPaused = !isPaused;
-			if (pauseText.text != "You Lose." && pauseText.text != "You Win!"
+			if (pauseText.text == "" || pauseText.text == "Paused") {
+				isPaused = !isPaused;
+			}
+			if (pauseText.text == "" &&pauseText.text != "You Lose." && pauseText.text != "You Win!"
 			             && pauseText.text != "Paused") {
 				pauseText.text = "Paused";
 				mazeControlObject.SendMessage ("pauseGhosts");
+				GameObject.FindGameObjectWithTag ("Player").SendMessage ("Pause");
 			} else if (pauseText.text == "Paused") {
 				pauseText.text = "";
 				mazeControlObject.SendMessage ("resumeGhosts");
+				GameObject.FindGameObjectWithTag ("Player").SendMessage ("Unpause");
 			}
         }
 

@@ -68,11 +68,17 @@ public class JumpTimer : MonoBehaviour {
 		}
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
-			isPaused = !isPaused;
-			if (pauseText.text != "Game Over!" && pauseText.text != "Paused")
+			if (pauseText.text == "" || pauseText.text == "Paused") {
+				isPaused = !isPaused;
+			}
+			if (pauseText.text == "" && pauseText.text != "Game Over!" && pauseText.text != "Paused") {
 				pauseText.text = "Paused";
-			else if (pauseText.text == "Paused")
+				GameObject.FindGameObjectWithTag ("Player").SendMessage ("Pause");
+			}else if (pauseText.text == "Paused") {
 				pauseText.text = "";
+				GameObject.FindGameObjectWithTag ("Player").SendMessage ("Unpause");
+			}
+			
 		}	
 	}
 

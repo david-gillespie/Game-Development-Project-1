@@ -52,7 +52,6 @@ public class ScoreController : MonoBehaviour {
 
 		if (score > 5 && isOver && !scoresWritten) {
 			scoresWritten = true;
-			print (Scores.readRunningScore ());
 			//Scores.AddToScores (Mathf.Round(Scores.readRunningScore()+(score*5)));
 			Scores.createRunningScore((score*5));
 		}

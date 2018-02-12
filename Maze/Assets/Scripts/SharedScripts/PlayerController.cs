@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour {
     private Vector3 endPosition;
     private Vector3 launchPower = new Vector3(0, 75, 0);
     private Vector3 jump = new Vector3(0, 15, 0);
+	private Vector3 storedSpeed;
 
     void Start ()
     {
@@ -250,5 +251,16 @@ public class PlayerController : MonoBehaviour {
 
 	private void cannotMove(){
 		canMove = false;
+	}
+
+	private void Pause(){
+		canMove = false;
+		storedSpeed = player.velocity;
+		player.Sleep ();
+		player.WakeUp ();
+	}
+	private void Unpause(){
+		canMove = true;
+		player.velocity = storedSpeed;
 	}
 }
