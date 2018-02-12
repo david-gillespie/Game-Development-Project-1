@@ -65,8 +65,7 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if (canMove)
-        {
+		if (canMove) {
 			if (levelName == "Race" && player.position != startPosition && Input.GetKey (KeyCode.LeftShift)) {
 				if (boost > 1 && speed < maxSpeed) {
 					IncreaseSpeed ();
@@ -76,36 +75,38 @@ public class PlayerController : MonoBehaviour {
 				RestoreBoost ();
 			}
 
-            float moveHorizontal = Input.GetAxis("Horizontal");
-            float moveVertical = Input.GetAxis("Vertical");
+			float moveHorizontal = Input.GetAxis ("Horizontal");
+			float moveVertical = Input.GetAxis ("Vertical");
 
-            Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
+			Vector3 movement = new Vector3 (moveHorizontal, 0, moveVertical);
 
-            movespeed = movement * speed;
-            player.AddForce(movespeed);
+			movespeed = movement * speed;
+			player.AddForce (movespeed);
 			if ((levelName == "Race" && speed > minSpeed) || speed > 100) {
 				speed -= 2;
 			}
-            if (winText.text == startingText && player.position != startPosition)
-            {
-                winText.color = Color.black;
-                winText.text = "";
+			if (winText.text == startingText && player.position != startPosition) {
+				winText.color = Color.black;
+				winText.text = "";
 				SendMessage ("StartTimer");
-            }
+			}
 			if (Input.GetKeyDown (KeyCode.Space)) {
 				if (grounded && winText.text == "") {
 					player.AddForce (jump * speed);
 				}
 			}
-            if (winText.text == "Game Over!")
-            {
-                canMove = false;
-                player.MovePosition(startPosition);
-                player.Sleep();
-                player.WakeUp();
-            }
-            isBoosting = false;
-        }
+			if (winText.text == "Game Over!") {
+				canMove = false;
+				player.MovePosition (startPosition);
+				player.Sleep ();
+				player.WakeUp ();
+			}
+			isBoosting = false;
+		} else if (levelName == "bowling") {
+			if (transform.GetComponent<Rigidbody> ().velocity.magnitude == 0) {
+
+			}
+		}
     }
 
     private void IncreaseSpeed()
@@ -243,5 +244,9 @@ public class PlayerController : MonoBehaviour {
 		if(collision.gameObject.tag == "Untagged"){
 			grounded = false;
 		}
+	}
+
+	private void cannotMove(){
+		canMove = false;
 	}
 }

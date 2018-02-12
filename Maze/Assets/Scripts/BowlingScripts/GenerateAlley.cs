@@ -9,6 +9,8 @@ public class GenerateAlley : MonoBehaviour {
 	public GameObject bowlingPins;
 	public Material[] materials;
 	public GameObject scoreController;
+	public GameObject player;
+	public Camera pinCamera;
 
 	private Vector3 startPosition;
 
@@ -20,7 +22,7 @@ public class GenerateAlley : MonoBehaviour {
 
 		startPosition = generateStartPosition.transform.position;
 
-		long difference = 50;
+		long difference = 200;
 
 		Vector3 nextPosition = startPosition;
 		float rotation = -30.0f;
@@ -35,7 +37,7 @@ public class GenerateAlley : MonoBehaviour {
 			go.transform.rotation = Quaternion.Euler (-newRotation,0.0f,rotationVariance);
 			go.GetComponent<Renderer>().material = materials[i%2];
 
-			rotationVariance = newVariance (rotationVariance, 20.0f, 2.0f);
+			rotationVariance = newVariance (rotationVariance, 40.0f, 5.0f);
 
 			oldRotation = newRotation; // Used to generate next object generation point
 			newRotation = Random.Range (0, variance)  + rotation;
@@ -53,10 +55,15 @@ public class GenerateAlley : MonoBehaviour {
 			objects [i].pinScoreController = scoreController;
 		}
 		go.transform.position = nextPosition;
+		scoreController.GetComponent<ScoreController>().lowestBounds = nextPosition.y-10;
+		nextPosition.z += 4;
+		nextPosition.y += 2;
+		pinCamera.transform.rotation = Quaternion.LookRotation (player.transform.position);
+		pinCamera.transform.position = nextPosition;
 	}
 
-	void Update () {
-		
+	void FixedUpdate () {
+		pinCamera.transform.rotation = Quaternion.LookRotation (player.transform.position-pinCamera.transform.position);
 	}
 
 	float RadianToDegree(float radian){
