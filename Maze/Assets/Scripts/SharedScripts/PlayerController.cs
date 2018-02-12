@@ -102,11 +102,7 @@ public class PlayerController : MonoBehaviour {
 				player.WakeUp ();
 			}
 			isBoosting = false;
-		} else if (levelName == "bowling") {
-			if (transform.GetComponent<Rigidbody> ().velocity.magnitude == 0) {
-
-			}
-		}
+		} 
     }
 
     private void IncreaseSpeed()
